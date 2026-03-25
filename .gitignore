@@ -1,3 +1,5 @@
+.github
+
 # Environnements virtuels
 venv/
 .env/
