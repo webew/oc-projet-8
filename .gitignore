@@ -1,0 +1,37 @@
+# Environnements virtuels
+venv/
+.env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Données
+data/raw/
+data/processed/
+
+# Modèles et artefacts lourds
+artifacts/*.joblib
+artifacts/*.pkl
+mlruns/
+notebooks/mlruns/
+mlartifacts/
+
+# Logs# MLfl
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# API
+# on ignore tout ce que MLflow exporte...
+api/models/*
+# ...sauf le modèle et l'export json
+!api/models/model.pkl
+!api/models/export_data.json

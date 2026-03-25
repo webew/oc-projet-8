@@ -1,0 +1,21 @@
+# Data
+numpy
+pandas
+
+# Visualisation
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+
+# Notebooks
+jupyter
+ipykernel
+
+# API / déploiement (pour plus tard)
+fastapi
+uvicorn
+
+# Application web
+streamlit

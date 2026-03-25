@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pytest
+httpx
+scikit-learn
+joblib
+pandas
+lightgbm
+imbalanced-learn
