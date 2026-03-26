@@ -26,10 +26,32 @@ git remote add origin https://github.com/webew/api-oc-projet7.git
 git push -u origin main
 ```
 
+## MLFlow
+
+Dans un terminal, exécuter :
+
+```bash
+mlflow server \
+  --backend-store-uri sqlite:///mlflow.db \
+  --default-artifact-root ./mlruns \
+  --host 0.0.0.0 \
+  --port 5000
+```
+
+Puis accéder à ['MLFLOW'](localhost:5000).
+
 ## Api
 
 ```bash
 uvicorn api.app.main:app --reload
 ```
 
+## Tests unitaires
 
+```bash
+pytest -v
+```
+
+## Data drift
+
+Exécuter le fichier artifacts/data_drift_report.html.

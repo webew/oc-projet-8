@@ -8,12 +8,27 @@ seaborn
 
 # Machine Learning
 scikit-learn
+imbalanced-learn
+lightgbm
+
+# Interprétabilité
+shap
+
+# Tracking / MLOps
+mlflow
 
 # Notebooks
 jupyter
 ipykernel
 
-# API / déploiement (pour plus tard)
+# Tests / qualité
+pytest
+flake8
+
+# Data Drift
+evidently
+
+# API / déploiement
 fastapi
 uvicorn
 

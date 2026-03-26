@@ -1,6 +1,7 @@
 # Environnements virtuels
 venv/
-.env/
+.env
+.env.*
 
 # Python
 __pycache__/
@@ -13,7 +14,7 @@ __pycache__/
 
 # Données
 data/raw/
-data/processed/
+# data/processed/
 
 # Modèles et artefacts lourds
 artifacts/*.joblib
@@ -35,3 +36,4 @@ api/models/*
 # ...sauf le modèle et l'export json
 !api/models/model.pkl
 !api/models/export_data.json
+!api/models/shap_global.json
