@@ -14,7 +14,7 @@ __pycache__/
 
 # Données
 data/raw/
-# data/processed/
+!data/raw/application_test.csv
 
 # Modèles et artefacts lourds
 artifacts/*.joblib
