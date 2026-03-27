@@ -13,7 +13,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Données
-data/raw/
+data/raw/*
 !data/raw/application_test.csv
 
 # Modèles et artefacts lourds
