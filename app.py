@@ -3,8 +3,9 @@ import numpy as np
 import pandas as pd
 import requests
 import plotly.graph_objects as go
+import os
 
-BASE_URL = "http://127.0.0.1:8000"
+BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 
 # ── fonctions (inchangées) ────────────────────────────────────────────────────
 def fetch_api():
