@@ -1,4 +1,6 @@
-# PROJET 7 : Implémentez un modèle de scoring
+# PROJET 8 : Dashboard
+
+> Application déployée : [Dashboard](https://oc-projet-8-streamlit.onrender.com/)
 
 ## Création du projet
 
@@ -46,12 +48,8 @@ Puis accéder à ['MLFLOW'](localhost:5000).
 uvicorn api.app.main:app --reload
 ```
 
-## Tests unitaires
+## Application
 
 ```bash
-pytest -v
+streamlit run app.py
 ```
-
-## Data drift
-
-Exécuter le fichier artifacts/data_drift_report.html.

@@ -6,8 +6,9 @@ import plotly.graph_objects as go
 import os
 
 BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
+st.write(f"DEBUG - BASE_URL: {BASE_URL}")  # à supprimer après
 
-# ── fonctions (inchangées) ────────────────────────────────────────────────────
+# ── fonctions ────────────────────────────────────────────────────
 def fetch_api():
     client_id = st.session_state["selectbox_client_id"]
     
