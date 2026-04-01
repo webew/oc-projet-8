@@ -209,7 +209,7 @@ if "prediction" in st.session_state:
             La **ligne rouge** (ou barre rouge) indique la valeur de ce client,
             permettant de le situer par rapport aux autres.
         """)
-    feature = st.selectbox("Choisir une feature :", options=features_sorted, index=0)
+    feature = st.selectbox("Choisir une caractéristique :", options=features_sorted, index=0)
     display_distribution(client_id, feature, X_scoring)
 
     st.divider()
@@ -224,9 +224,9 @@ if "prediction" in st.session_state:
         """)
     col1, col2 = st.columns(2)
     with col1:
-        feature_x = st.selectbox("Feature X :", options=features_sorted, key="biv_x")
+        feature_x = st.selectbox("Caractéristique X :", options=features_sorted, key="biv_x")
     with col2:
-        feature_y = st.selectbox("Feature Y :", options=features_sorted, key="biv_y")
+        feature_y = st.selectbox("Caractéristique Y :", options=features_sorted, key="biv_y")
     if st.button("Afficher le graphique"):
         display_bivariate(client_id, feature_x, feature_y, X_scoring)
 else:
