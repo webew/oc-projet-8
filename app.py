@@ -12,12 +12,21 @@ BASE_URL = os.getenv("API_URL", "http://127.0.0.1:8000")
 def fetch_api():
     client_id = st.session_state["selectbox_client_id"]
     
-    if client_id is None:  # selectbox vidé
-        st.session_state.pop("prediction", None)  # on efface la prédiction
+    if client_id is None:
+        st.session_state.pop("prediction", None)
+        st.session_state.pop("features_sorted", None)  # ← on efface aussi l'ordre
         return
     
     r = requests.get(f"{BASE_URL}/predict/{client_id}", timeout=30)
-    st.session_state["prediction"] = r.json()
+    prediction = r.json()
+    st.session_state["prediction"] = prediction
+
+    # on calcule l'ordre une seule fois à la sélection du client
+    st.session_state["features_sorted"] = sorted(
+        X_scoring.columns.tolist(),
+        key=lambda f: get_global_importance(f, prediction["shap_local"]),
+        reverse=True
+    )
 
 def get_global_importance(feature, shap_dict):
     total = 0
@@ -119,11 +128,7 @@ with st.sidebar:
     if "prediction" in st.session_state:
         client_id = st.session_state["selectbox_client_id"]
         prediction = st.session_state["prediction"]
-        features_sorted = sorted(
-            X_scoring.columns.tolist(),
-            key=lambda f: get_global_importance(f, prediction["shap_local"]),
-            reverse=True
-        )
+        features_sorted = st.session_state["features_sorted"]  # ← on lit, on ne recalcule pas
 
         # Features modifiables
         st.header("Modifier les informations")
@@ -165,11 +170,12 @@ st.title('Tableau de bord - Crédit client')
 if "prediction" in st.session_state:
     client_id = st.session_state["selectbox_client_id"]
     prediction = st.session_state["prediction"]
-    features_sorted = sorted(
-        X_scoring.columns.tolist(),
-        key=lambda f: get_global_importance(f, prediction["shap_local"]),
-        reverse=True
-    )
+    # features_sorted = sorted(
+    #     X_scoring.columns.tolist(),
+    #     key=lambda f: get_global_importance(f, prediction["shap_local"]),
+    #     reverse=True
+    # )
+    features_sorted = st.session_state["features_sorted"]
     st.header("Eligibilité du client")
     if prediction['approved']:
         st.success("✅ Crédit accepté")
